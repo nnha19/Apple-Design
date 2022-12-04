@@ -1,22 +1,74 @@
 import Image from "next/image";
 import Container from "../../../components/Container";
 import Header1 from "../../../components/Header1";
-import Header2 from "../../../components/Header2";
 import Link from "./Link";
+import DivWithBgImg from "../../../components/DivWithBgImg";
 
 const Features = () => {
   const devices = [
-    { icon: "", text: "Apple TV" },
-    { icon: "", text: "iPhone" },
-    { icon: "", text: "iPad" },
-    { icon: "", text: "Mac" },
-    { icon: "", text: "AirPlay" },
+    {
+      icon: "https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_apple_tv__r2nel0gcigam_large.jpg",
+      text: "Apple TV",
+    },
+    {
+      icon: "https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_iphone__c914mkstye0y_large.jpg",
+      text: "iPhone",
+    },
+    {
+      icon: "https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_ipad__cyk6qow5fiqa_large.jpg",
+      text: "iPad",
+    },
+    {
+      icon: "https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_mac__b7y797p7oouq_large.jpg",
+      text: "Mac",
+    },
+    {
+      icon: "https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_airplay__ddkvcm0sxtm6_large.jpg",
+      text: "AirPlay",
+    },
   ];
 
   const smartTvs = [
-    { iconUrl: "https://www.flaticon.com/free-icons/smart-tv" },
-    { iconUrl: "https://www.flaticon.com/free-icons/smart-tv" },
-    { iconUrl: "https://www.flaticon.com/free-icons/smart-tv" },
+    {
+      iconUrl:
+        "https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_samsung__er6s8sp9t126_large.jpg",
+    },
+    {
+      iconUrl:
+        "	https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_lg__7fxn3l0zf5ua_large.jpg",
+    },
+    {
+      iconUrl:
+        "https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_xfinity__fohor3dbqrmi_large.jpg",
+    },
+    {
+      iconUrl:
+        "https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_samsung__er6s8sp9t126_large.jpg",
+    },
+    {
+      iconUrl:
+        "	https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_lg__7fxn3l0zf5ua_large.jpg",
+    },
+    {
+      iconUrl:
+        "https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_xfinity__fohor3dbqrmi_large.jpg",
+    },
+    {
+      iconUrl:
+        "https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_samsung__er6s8sp9t126_large.jpg",
+    },
+    {
+      iconUrl:
+        "	https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_lg__7fxn3l0zf5ua_large.jpg",
+    },
+    {
+      iconUrl:
+        "https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_xfinity__fohor3dbqrmi_large.jpg",
+    },
+    {
+      iconUrl:
+        "https://www.apple.com/v/apple-tv-plus/ag/images/overview/icon_xfinity__fohor3dbqrmi_large.jpg",
+    },
   ];
 
   return (
@@ -24,7 +76,12 @@ const Features = () => {
       <Container>
         <div className="lg:w-[980px] mx-auto">
           <div className="pt-[130px] pb-[52px]">
-            <h2 className="h-[86px] w-[86px] mx-auto">TVLogo</h2>
+            <DivWithBgImg
+              height={86}
+              width={86}
+              className="mx-auto"
+              url="https://www.apple.com/v/apple-tv-plus/ag/images/overview/apple_tv_app_icon__cth1s5qlqpyu_xlarge.png"
+            />
             <div>
               <Header1 className="text-[28px] md:text-[40px] lg:text-[72px] xl:text-[80px] text-primaryBg text-center leading-[1] lg:tracking-[-2.9px]">
                 Watch Apple TV+ anywhere <br /> on the Apple TV app.
@@ -36,11 +93,11 @@ const Features = () => {
               </p>
             </div>
           </div>
-          <div className="flex justify-between flex-wrap">
+          <div className="flex justify-center md:justify-between flex-wrap">
             {devices.map(({ icon, text }) => (
-              <div className="pb-[62px]">
-                {icon}
-                <p className="text-primaryBg text-[19px] font-medium text-center">
+              <div className="min-w-[130px] pb-[62px]">
+                <DivWithBgImg className="mx-auto" url={icon} />
+                <p className="text-primaryBg text-[19px] font-medium text-center mt-2">
                   {text}
                 </p>
               </div>
@@ -56,13 +113,19 @@ const Features = () => {
                 Explore compatible devices
               </Link>
             </div>
-            <div className="flex justify-between flex-wrap wrap mt-[38px]">
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat( auto-fit, minmax(191px, 1fr))",
+              }}
+              className="flex justify-between flex-wrap wrap mt-[38px]"
+            >
               {smartTvs.map(({ iconUrl }) => (
-                <Image
-                  alt="smart-tv"
-                  height={50}
-                  width={50}
-                  src="/images/tv-monitor.png"
+                <DivWithBgImg
+                  height={100}
+                  width={100}
+                  className="my-30 mx-auto"
+                  url={iconUrl}
                 />
               ))}
             </div>

@@ -1,6 +1,9 @@
 import Image from "next/image";
 import ReactSwipe from "react-swipe";
+import { IoIosArrowDropright, IoIosArrowDropleft } from "react-icons/io";
+
 import Button from "../../../components/Button";
+import AutoSlider from "./AutoSlider";
 
 const manualSlider = [
   {
@@ -24,35 +27,50 @@ const MovieSlider = () => {
   let reactSwipeEl: any;
 
   return (
-    <section className="min-h-[70vh]">
-      <ReactSwipe
-        className="carousel"
-        swipeOptions={{ continuous: false }}
-        ref={(el) => (reactSwipeEl = el)}
-      >
-        {manualSlider.map(({ url, title, genre }) => (
-          <div
-            style={{
-              backgroundImage: url,
-            }}
-            className="h-[506px] w-[900px] relative"
-          >
+    <section className="min-h-[70vh] bg-primaryBg">
+      <div className="h-[506px] relative">
+        <ReactSwipe
+          className="carousel"
+          swipeOptions={{ continuous: false }}
+          ref={(el) => (reactSwipeEl = el)}
+        >
+          {manualSlider.map(({ url, title, genre }) => (
             <div
               style={{
-                transform: "translateX(-50%)",
+                backgroundImage: url,
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                backgroundPositionX: "center",
               }}
-              className="absolute bottom-[3rem] flex justify-between w-4/5 left-[50%] "
+              className="h-[506px]"
             >
-              <p className="text-[24px] text-primaryTxt">
-                <b>{genre}</b> : {title}
-              </p>
-              <Button>Stream Now</Button>
+              <div
+                style={{
+                  transform: "translateX(-50%)",
+                }}
+                className="absolute bottom-[3rem] flex justify-between w-4/5 left-[50%] "
+              >
+                <p className="text-[24px] text-primaryTxt">
+                  <b>{genre}</b> : {title}
+                </p>
+                <Button>Stream Now</Button>
+              </div>
             </div>
-          </div>
-        ))}
-      </ReactSwipe>
-      <Button onClick={() => reactSwipeEl.next()}>Next</Button>
-      <Button onClick={() => reactSwipeEl.prev()}>Previous</Button>
+          ))}
+        </ReactSwipe>
+        <IoIosArrowDropleft
+          style={{ top: "50%", left: "0", transform: "translateY(-50%)" }}
+          className=" text-white absolute text-[4rem] hover:cursor-pointer"
+          onClick={() => reactSwipeEl.prev()}
+        />
+        <IoIosArrowDropright
+          style={{ top: "50%", right: "0", transform: "translateY(-50%)" }}
+          className=" text-white absolute text-[4rem] hover:cursor-pointer"
+          onClick={() => reactSwipeEl.next()}
+        />
+      </div>
+
+      <AutoSlider />
     </section>
   );
 };

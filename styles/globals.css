@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.stream-btn {
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.slide-container:hover > .stream-btn {
+  opacity: 1;
+  transform: translate(-50%, -50%) !important;
+}
+
+.slide-container:hover > div {
+  opacity: 0.5;
+}
+
+.slider {
+  animation: slide 90s infinite;
+}
+
+@keyframes slide {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

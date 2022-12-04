@@ -2,6 +2,7 @@ import Button from "../../../components/Button";
 import Container from "../../../components/Container";
 import Header1 from "../../../components/Header1";
 import Header2 from "../../../components/Header2";
+import Link from "./Link";
 
 const FirstSection = () => {
   return (
@@ -23,7 +24,7 @@ const FirstSection = () => {
         <div className="bg-[#1d1d20b8] h-[52px] flex items-center justify-center">
           <p className="text-[14px] text-primaryTxt text-center font-medium p-12">
             MLS Season Pass. Stream every Major League Soccer match. Coming
-            soon.* Notify me
+            soon.* <Link>Notify me</Link>
           </p>
         </div>
 
